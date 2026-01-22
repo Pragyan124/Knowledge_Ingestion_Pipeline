@@ -1,0 +1,25 @@
+# --- Build Artifacts ---
+target/
+project/target/
+project/project/target/
+*.class
+
+# --- sbt & Scala Metadata ---
+.bsp/
+.scala-build/
+
+# --- IDE Settings (Metals / VS Code) ---
+.metals/
+.vscode/
+
+# --- IDE Settings (IntelliJ IDEA) ---
+.idea/
+*.iml
+
+# --- Logs & OS Files ---
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Security (Just in case) ---
+.env
