@@ -24,6 +24,11 @@ jobs:
           distribution: 'temurin'
           cache: 'sbt'
 
+      # --- NEW STEP: Install sbt ---
+      - name: Setup sbt
+        uses: sbt/setup-sbt@v1
+      # -----------------------------
+
       - name: Run Scala Bot
         env:
           # We will add these secrets in the next step
