@@ -1,0 +1,37 @@
+name: Daily Knowledge Ingestion
+
+on:
+  schedule:
+    # Runs at 08:30 UTC everyday (which is 2:00 PM IST)
+    # Note: GitHub Actions uses UTC time. IST is UTC + 5:30.
+    # 14:00 - 5:30 = 08:30
+    - cron: '30 8 * * *'
+  # Allows you to run it manually from the Actions tab for testing
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'sbt'
+
+      # --- NEW STEP: Install sbt ---
+      - name: Setup sbt
+        uses: sbt/setup-sbt@v1
+      # -----------------------------
+
+      - name: Run Scala Bot
+        env:
+          # We will add these secrets in the next step
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: sbt run
