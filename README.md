@@ -7,6 +7,9 @@
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
 
+## Sequence Diagram
+![Dashboard Screenshot](sd.svg)
+
 ## Architecture
 
 1.  **Trigger:** GitHub Actions wakes up daily at 2:00 PM IST (Cron Job).
